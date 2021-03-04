@@ -9,14 +9,23 @@ public class BaseDatos {
 
     public BaseDatos(){
         buffer = new ArrayList<>();
+        buffer.add("flag");
         random = new Random(System.currentTimeMillis());
     }
 
-    public void insert(){
+    public void insert() {
+        //Simulación de tiempo de escritura
+        try {
+            Thread.sleep(random.nextInt(3000) + 1000);
+        } catch (InterruptedException e) { }
         buffer.add(Thread.currentThread().getName());
     }
 
-    public String read(){
+    public String read() {
+        //Simulación de tiempo de lectura
+        try {
+            Thread.sleep(random.nextInt(1000) + 500);
+        } catch (InterruptedException e) { }
        return buffer.get(random.nextInt(buffer.size()));
     }
 

@@ -8,16 +8,16 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller.rootController">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.Controller.rootController">
    <children>
       <Button fx:id="btnIniciar" layoutX="406.0" layoutY="297.0" mnemonicParsing="false" onMouseClicked="#iniciarOnMouseClicked" prefHeight="27.0" prefWidth="153.0" text="Iniciar" />
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="407.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="402.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../resources/database.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="310.0" layoutX="14.0" layoutY="69.0" stroke="BLACK" strokeType="INSIDE" width="150.0" />
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="310.0" layoutX="174.0" layoutY="69.0" stroke="BLACK" strokeType="INSIDE" width="150.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="310.0" layoutX="15.0" layoutY="70.0" stroke="BLACK" strokeType="INSIDE" width="150.0" />
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="310.0" layoutX="175.0" layoutY="70.0" stroke="BLACK" strokeType="INSIDE" width="150.0" />
       <Label layoutX="14.0" layoutY="30.0" text="Lectores">
          <font>
             <Font name="System Bold" size="20.0" />

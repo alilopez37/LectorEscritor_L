@@ -4,25 +4,28 @@ import java.util.Observable;
 import java.util.concurrent.Semaphore;
 
 public class Escritor extends Observable implements Runnable {
-    private Semaphore acceso_esc;
+    private Semaphore semEscritor;
     private BaseDatos baseDatos;
+    private final int WRITING = 0;
+    private final int OUT = 1;
 
-    public Escritor(Semaphore acceso_esc, BaseDatos baseDatos){
-        this.acceso_esc = acceso_esc;
+    public Escritor(Semaphore semEscritor, BaseDatos baseDatos){
+        this.semEscritor = semEscritor;
         this.baseDatos = baseDatos;
     }
 
     @Override
     public void run() {
         try {
-            acceso_esc.acquire();
+            semEscritor.acquire();
+            //Notificación al controller de que ha llegado a escribir
             setChanged();
-            notifyObservers(Thread.currentThread().getName());
+            notifyObservers(WRITING);
             baseDatos.insert();
-            System.out.println(baseDatos.toString());
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        acceso_esc.release();
+            //Notificación al controller de que ha salido del buffer
+            setChanged();
+            notifyObservers(OUT);
+        } catch (InterruptedException e) { }
+        semEscritor.release();
     }
 }
